@@ -76,7 +76,7 @@ function Navbar() {
             </svg>
           </button>
         </div>
-        <div className={`w-full md:flex md:items-center md:w-auto ${isOpen ? "block" : "hidden"}`}>
+        <div className={`w-full md:flex md:items-center md:w-auto sm:relative sm:top-0 absolute top-[50px] ${isOpen ? "block" : "hidden"}`}>
           <ul className="md:flex md:space-x-8 mt-4 md:mt-0 text-white font-bold">
             {values.map(values => {
                 return (
