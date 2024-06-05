@@ -1,11 +1,11 @@
 import React from 'react'
-import './App.css'
-import logo from './assets/logo.png'
-import profile from './assets/abidface.png'
+import '../App.css'
+import logo from '../assets/logo.png'
+import profile from '../assets/abidface.png'
 import {useState, useEffect} from "react";
 import { TypeAnimation } from 'react-type-animation';
 
-const ExampleComponent = () => {
+const AnimatedComponent = () => {
   return (
     <TypeAnimation
       sequence={[
@@ -62,8 +62,8 @@ function Navbar() {
     
     return (
         <>
-        <section className="w-100 sm:h-lvh h-[520px] bg-img bg-center bg-cover">
-            <div className='w-100 sm:h-lvh h-[520px] bg-[rgba(0,0,0,0.5)]'>
+        <section className="w-[100%] h-screen bg-img bg-center bg-cover">
+            <div className='w-[100%] h-screen bg-[rgba(0,0,0,0.5)]'>
                 <header className='max-w-[1170px]  mx-auto'>
                     <div className='grid sm:grid-cols-2 grid-cols-[70%_auto] px-[10px]'>
                         <figure className='z-auto sm:mx-14'>
@@ -71,7 +71,7 @@ function Navbar() {
                         </figure>
                        <div className="block md:hidden">
           <button onClick={toggleMenu} className="text-white focus:outline-none p-3">
-            <svg className="h-[2.5rem] w-[5rem]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <svg className="h-[2.5rem] w-[4rem]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16m-7 6h7"}></path>
             </svg>
           </button>
@@ -94,7 +94,7 @@ function Navbar() {
             <div className="order-2 sm:order-1 sm:mx-10 mx-3">
               <h1 className="font-bold sm:text-7xl text-4xl text-center sm:text-left">Hi, I am Dhritiman Saikia</h1>
               <h2 className="sm:text-4xl text-[25px] sm:text-left text-center my-2">
-                I am a <span className="text-[rgba(255,87,0)] font-bold"><ExampleComponent /></span>
+                I am a <span className="text-[rgba(255,87,0)] font-bold"><AnimatedComponent /></span>
               </h2>
             </div>
             <div className="order-1 sm:order-2 mx-auto">

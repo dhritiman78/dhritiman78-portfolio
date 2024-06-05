@@ -2,3 +2,7 @@
     background-image: url('assets/background.jpg');
     /* background-image: url('assets/bg-22.avif'); */
 }
+pb{
+    font-weight: bold;
+    color: #a000e0;
+}

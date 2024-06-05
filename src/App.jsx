@@ -1,9 +1,11 @@
 import { useState,useEffect, useRef } from "react";
-import Navbar from "./Navbar";
+import Navbar from "./components/Navbar";
+import Introduction from "./components/Introduction";
 function App() {
   return (
     <>
    <Navbar />
+    <Introduction />
     </>
   )
 }
