@@ -90,7 +90,7 @@ function Navbar() {
 
                     </div>
                 </header>
-                <div className="max-w-[1170px] mx-auto sm:py-[150px] py-[30px] grid sm:grid-cols-[60%_auto] grid-cols-1 gap-6 text-white">
+                <div className="max-w-[1170px] mx-auto sm:py-[150px] py-12 grid sm:grid-cols-[60%_auto] grid-cols-1 gap-6 text-white">
             <div className="order-2 sm:order-1 sm:mx-10 mx-3">
               <h1 className="font-bold sm:text-7xl text-4xl text-center sm:text-left">Hi, I am Dhritiman Saikia</h1>
               <h2 className="sm:text-4xl text-[25px] sm:text-left text-center my-2">
