@@ -4,6 +4,8 @@ import logo from '../assets/logo.png'
 import profile from '../assets/abidface.png'
 import {useState, useEffect} from "react";
 import { TypeAnimation } from 'react-type-animation';
+import { motion, useInView } from 'framer-motion'
+
 
 const AnimatedComponent = () => {
   return (
@@ -97,9 +99,15 @@ function Navbar() {
                 I am a <span className="text-[rgba(255,87,0)] font-bold"><AnimatedComponent /></span>
               </h2>
             </div>
-            <div className="order-1 sm:order-2 mx-auto">
+            <motion.div initial={{ scale: 0 }}
+  animate={{ rotate: 720, scale: 1 }}
+  transition={{
+    type: "spring",
+    stiffness: 260,
+    damping: 20
+  }} className="order-1 sm:order-2 mx-auto">
               <img className="sm:rounded-[130px] rounded-[90px] sm:h-[270px] h-[190px] sm:w-[270px] w-[186px]" src={profile} alt="Profile" />
-            </div>
+            </motion.div>
           </div>
             </div>
         </section>
