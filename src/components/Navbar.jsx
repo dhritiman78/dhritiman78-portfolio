@@ -84,7 +84,7 @@ function Navbar() {
                   </svg>
                 </button>
               </div>
-              <div className={`w-[-moz-available] px-2 md:flex md:items-center md:w-auto sm:relative sm:top-0 absolute top-[67px] ${isOpen ? "block bg-[rgba(0,0,0,0.9)]" : "hidden"}`}>
+              <div className={`w-[-moz-available] px-2 md:flex md:items-center md:w-auto sm:relative sm:top-0 absolute top-[67px] ${isOpen ? "block z-[1] bg-[rgba(0,0,0,0.9)]" : "hidden"}`}>
                 <ul className="md:flex md:space-x-8 mt-4 md:mt-0 text-white font-bold">
                   {values.map((val, index) => (
                     <li key={index}>
