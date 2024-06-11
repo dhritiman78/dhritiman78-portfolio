@@ -31,7 +31,7 @@ const Introduction = () => {
         className='flex flex-col mx-auto w-[90%] my-10'
         variants={sectionVariants}
         initial="hidden"
-        animate={inView ? 'visible' : 'hidden'}>
+        animate={inView ? 'visible' : 'hidden'} id='introduction'>
         <div>
           <h1 className='font-bold text-center sm:text-4xl text-2xl'>LET ME INTRODUCE MYSELF</h1>
         </div>
