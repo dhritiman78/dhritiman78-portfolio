@@ -71,7 +71,7 @@ function Navbar() {
   return (
     <>
       <section ref={sectionRef} className="w-[100%] h-screen bg-img bg-center bg-cover">
-        <div className='w-[100%] h-screen bg-[rgba(0,0,0,0.5)]'>
+        <div className='w-[100%] h-screen bg-[rgba(0,0,0,0.7)]'>
           <header className='max-w-[1170px]  mx-auto'>
             <div className='grid sm:grid-cols-2 grid-cols-[70%_auto] px-[10px]'>
               <figure className='z-auto sm:mx-14'>

@@ -5,11 +5,14 @@ import Footerbar from "./components/Footerbar"
 import Socials from "./components/Socials";
 
 function App() {
+  const[isHome, setHome] = useState(true);
+  const[isAbout, setAbout] = useState(false);
   return (
     <>
-      <Navbar />
-      <Introduction />
-      <Socials />
+     {isHome && <Navbar />} 
+     {isHome && <Introduction />} 
+     {isHome && <Socials />}    
+     {isAbout && "Hello world"}   
       <Footerbar />
     </>
   )
