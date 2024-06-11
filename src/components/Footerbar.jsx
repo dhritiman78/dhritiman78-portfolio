@@ -7,7 +7,7 @@ const Footerbar = () => {
         <p className="text-sm mb-4">
           Made with <span className="text-red-500">&hearts;</span> by Dhritiman
         </p>
-        <p className="text-sm">
+        <p className="text-sm font-bold">
           © {new Date().getFullYear()} All rights reserved.
         </p>
       </div>
