@@ -5,8 +5,8 @@ import WebSkills from './WebSkills';
 const About = () => {
     return (
         <>
-            <section className='mt-32 mb-2'>
-                <div className='grid grid-cols-[65%_auto] sm:mx-5'>
+            <section className='mt-32 mb-2 mx-5'>
+                <div className='grid sm:grid-cols-[65%_auto] sm:mx-5'>
                     <div>
                         <h1 className='font-bold text-5xl text-purple-800 text-center my-2'>Know Who I'm</h1>
                         <p> I am <b>Dhritiman Saikia</b>, a <pb>B.Tech Computer Science Engineering</pb> student at the <b>School of Engineering, Tezpur University</b>. I have a strong foundation in web development and programming, proficient in <pb>JavaScript, HTML, CSS, PHP, and MySQL, with basic knowledge of Java and C</pb>, . I am currently learning the <pb>MERN stack, Next.js, Python, Java DSA, and C++</pb>.
