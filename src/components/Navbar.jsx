@@ -28,12 +28,12 @@ const AnimatedComponent = () => {
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [values, setValues] = useState([
-    { 'name': 'Home', 'link': '#home' },
-    { 'name': 'About', 'link': '#about' },
-    { 'name': 'Projects', 'link': '#projects' },
-    { 'name': 'Services', 'link': '#services' },
-    { 'name': 'CV', 'link': '#cv' },
-    { 'name': 'Contact', 'link': '#contact' },
+    { 'name': 'Home', 'link': '/' },
+    { 'name': 'About', 'link': '/about' },
+    { 'name': 'Projects', 'link': '/projects' },
+    { 'name': 'Services', 'link': '/services' },
+    { 'name': 'CV', 'link': '/cv' },
+    { 'name': 'Contact', 'link': '/contact' },
   ]);
 
   const toggleMenu = () => {

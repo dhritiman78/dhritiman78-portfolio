@@ -5,5 +5,8 @@
 }
 pb{
     font-weight: bold;
-    color: #a000e0;
+    color: #9669a8;
+}
+.nav-bottom-border, .webskillicons{
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
 }
