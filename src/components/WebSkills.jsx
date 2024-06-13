@@ -15,16 +15,19 @@ const SkillItem = ({ webskill }) => {
         triggerOnce: false, // only trigger once
         threshold: 0.5, // trigger when 10% of the element is visible
     });
+    const currentWidth = inView ? `${webskill.level}` : '0%';
+
+const isRed = parseInt(currentWidth) <= 40;
 
     return (
         <li ref={ref} className='mx-3 my-3 webskillicons rounded px-2 py-2 grid grid-rows-[90%_auto]'>
             <div className='mx-auto my-auto'>
-                <img className='w-[200px] my-2' src={webskill.image} alt="" />
+                <img className='w-[100px] my-2' src={webskill.image} alt="" />
             </div>
             <div className="w-150 h-4 border-2 border-slate-200 rounded">
                 <div
-                    className='bg-purple-700 h-full transition-width duration-1000 ease-in-out'
-                    style={{ width: inView ? `${webskill.level}` : '0%' }}
+                    className='h-full transition-width duration-[2000ms] ease-in-out'
+                    style={{ width: currentWidth , backgroundColor: isRed ? '#e76e55' : '#92cc41'}}
                 ></div>
             </div>
         </li>
