@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import sidepic from '../assets/side_pic.png';
 import WebSkills from './WebSkills';
+import OtherSkills from './OtherSkills';
 
 const About = () => {
     return (
@@ -22,6 +23,7 @@ const About = () => {
             </section>
             <div><h1 className='font-bold text-5xl text-purple-800 text-center my-2'> My Skillset</h1></div>
             <WebSkills />
+            <OtherSkills />
         </>
     )
 }
