@@ -5,6 +5,8 @@ import Footerbar from "./components/Footerbar"
 import Socials from "./components/Socials";
 import NavbarOther from "./components/NavbarOther";
 import About from "./components/About";
+import CVpage from "./components/CVpage";
+import CVblank from "./components/CV";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 const HomePage = () => {
   return (
@@ -41,7 +43,8 @@ const CV = () => {
   return (
     <div>
       <NavbarOther />
-    </div>
+      <CVpage />
+      </div>
   );
 }
 const Contact = () => {
@@ -63,10 +66,12 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/cv" element={<CV />} />
+          <Route path="/blankcv" element={<CVblank />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={<HomePage />} />
         </Routes>
-        <Footerbar />
+        {location.pathname !== "/blankcv" && <Footerbar />}
+        {/* <Footerbar /> */}
       </>
     </Router>
   )
