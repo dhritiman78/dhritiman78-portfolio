@@ -1,16 +1,29 @@
-import React from 'react'
-import CV from './CV'
+import React, { useRef } from 'react';
+import ReactToPrint from 'react-to-print';
+import CV from './CV';
+
 const CVpage = () => {
+  const componentRef = useRef();
+
   return (
     <>
-    <div className='mt-[80px] mb-5 sm:w-[60%] w-[96%] mx-auto shadow rounded'>
+      <div className="mt-[85px] mb-5 sm:w-[60%] w-[90%] mx-auto shadow rounded">
         <div>
-            <a href='/blankcv' className='bg-blue-500 text-white p-2 w-full'>Download CV</a>
+          <ReactToPrint
+            trigger={() => (
+              <button className="bg-blue-500 text-white p-2 w-full">
+                Download CV
+              </button>
+            )}
+            content={() => componentRef.current}
+          />
         </div>
-        <CV />
-    </div>
+        <div ref={componentRef}>
+          <CV />
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default CVpage
+export default CVpage;
