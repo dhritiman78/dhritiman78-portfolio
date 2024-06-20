@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import '../App.css';
 import logo from '../assets/logo.png';
-import profile from '../assets/abidface.png';
+import profile from '../assets/avatar.5852f40fbb38aa284829fa3fb7722225.svg';
 import { TypeAnimation } from 'react-type-animation';
 import { motion, useAnimation } from 'framer-motion';
 
