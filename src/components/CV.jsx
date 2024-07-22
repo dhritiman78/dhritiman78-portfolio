@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './custom.css';
 
 const CV = () => {
   const [skills] = useState([
