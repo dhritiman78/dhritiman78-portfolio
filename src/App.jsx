@@ -9,6 +9,8 @@ import CVpage from "./components/CVpage";
 import CVblank from "./components/CV";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProjectPage from "./components/ProjectPage";
+import ServicePage from "./components/ServicePage";
+import ContactPage from "./components/ContactPage";
 const HomePage = () => {
   return (
     <div>
@@ -38,6 +40,7 @@ const Services = () => {
   return (
     <div>
       <NavbarOther />
+      <ServicePage />
     </div>
   );
 }
@@ -53,6 +56,7 @@ const Contact = () => {
   return (
     <div>
       <NavbarOther />
+      <ContactPage />
     </div>
   );
 }
