@@ -8,6 +8,7 @@ import About from "./components/About";
 import CVpage from "./components/CVpage";
 import CVblank from "./components/CV";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ProjectPage from "./components/ProjectPage";
 const HomePage = () => {
   return (
     <div>
@@ -29,6 +30,7 @@ const Projects = () => {
   return (
     <div>
       <NavbarOther />
+      <ProjectPage />
     </div>
   );
 }
