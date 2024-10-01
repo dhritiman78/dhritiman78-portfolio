@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: '',
+    phone: '',
     email: '',
     message: '',
   });
@@ -14,17 +15,33 @@ const ContactPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Form submission logic goes here
-    console.log(formData);
-    alert("Message sent successfully!");
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-    });
+    try {
+      const response = await fetch(import.meta.env.VITE_API_URL+'/api/contact/add', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (!response.ok) {
+        alert('Something went wrong. Please try again later.');
+      } else {
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          message: '',
+        });
+        alert('Message sent successfully!');
+      }
+    } catch (error) {
+      alert('Something went wrong. Please try again later.');
+    }
   };
+  
 
   return (
     <div className="min-h-screen mt-16 flex flex-col justify-center items-center bg-gradient-to-br from-gray-100 via-white to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
@@ -47,6 +64,21 @@ const ContactPage = () => {
               required
               className="mt-1 block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out hover:shadow-lg"
               placeholder="John Doe"
+            />
+          </div>
+           {/* Phone no. */}
+           <div className="relative">
+            <label htmlFor="phone" className="block text-sm font-semibold text-blue-600">
+              Phone number (Optional)
+            </label>
+            <input
+              type="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              id="phone"
+              className="mt-1 block w-full px-4 py-3 text-sm border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-300 ease-in-out hover:shadow-lg"
+              placeholder="7002524244"
             />
           </div>
 

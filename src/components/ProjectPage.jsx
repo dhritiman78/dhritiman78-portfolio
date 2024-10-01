@@ -1,37 +1,15 @@
 import React from 'react';
-
-const projects = [
-  {
-    name: 'Hostel Fee Management System',
-    description: 'Developed a comprehensive system for managing hostel fees.',
-    technologies: 'PHP, MySQL',
-    role: 'Full Stack Developer',
-    github: 'https://github.com/dhritiman78/Hostel-fee-management-system',
-  },
-  {
-    name: 'CEE Assam College Predictor',
-    description: 'Created a college predictor website based on CEE ranks and cut-off data.',
-    technologies: 'PHP, MySQL',
-    role: 'Full Stack Developer',
-    github: 'https://github.com/dhritiman78/cee-assam-college-predictor',
-  },
-  {
-    name: 'Shimi Gallery',
-    description: 'Developed a portfolio website to showcase artwork.',
-    technologies: 'Next.js, MongoDB, Mongoose',
-    role: 'Backend Developer',
-    github: 'https://github.com/dhritiman78/Shimi-Gallery',
-  },
-  {
-    name: 'Desi Instagram',
-    description: 'Developed a prototype social media platform similar to Instagram.',
-    technologies: 'PHP, MySQL',
-    role: 'Full Stack Developer',
-    github: 'https://github.com/dhritimn/Desi-Instagram',
-  },
-];
+import { useState, useEffect } from 'react';
 
 const ProjectPage = () => {
+    const [projects, setProjects] = useState([]);
+
+useEffect(() => {
+    fetch(import.meta.env.VITE_API_URL+'/api/projects/all')
+      .then((res) => res.json())
+      .then((data) => setProjects(data));
+  }
+  , []);
 return (
     <div className="min-h-screen mt-16 bg-gray-100">
         {/* Header */}

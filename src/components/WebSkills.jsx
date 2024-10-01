@@ -1,15 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import htmlpic from '../assets/weblangicons/html.png';
-import csspic from '../assets/weblangicons/css.png';
-import jspic from '../assets/weblangicons/js.png';
-import phppic from '../assets/weblangicons/php.png';
-import mysqlpic from '../assets/weblangicons/mysql.png';
-import nodejspic from '../assets/weblangicons/nodejs.png';
-import expresspic from '../assets/weblangicons/express.png';
-import mongopic from '../assets/weblangicons/mongo.png';
-import reactpic from '../assets/weblangicons/react.png';
-import tailpic from '../assets/weblangicons/tailwind.png';
 
 const SkillItem = ({ webskill }) => {
   const { ref, inView } = useInView({
@@ -44,22 +34,28 @@ const SkillItem = ({ webskill }) => {
 };
 
 const WebSkills = () => {
-  const [webskills] = useState([
-    { name: 'HTML', image: htmlpic, level: '92%' },
-    { name: 'CSS', image: csspic, level: '65%' },
-    { name: 'JavaScript', image: jspic, level: '65%' },
-    { name: 'PHP', image: phppic, level: '60%' },
-    { name: 'MySQL', image: mysqlpic, level: '50%' },
-    { name: 'Node.js', image: nodejspic, level: '70%' },
-    { name: 'Express.js', image: expresspic, level: '50%' },
-    { name: 'MongoDB', image: mongopic, level: '68%' },
-    { name: 'React', image: reactpic, level: '35%' },
-    { name: 'Tailwind CSS', image: tailpic, level: '35%' },
-  ]);
+  const [webskills, setWebskills] = useState([]);
+
+  useEffect(() => {
+    const fetchSkills = async () => {
+      try {
+        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/skills/webskills`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setWebskills(data);
+      } catch (error) {
+        console.error('Fetch error:', error);
+      }
+    };
+
+    fetchSkills();
+  }, []);
 
   return (
     <div className="my-6 container mx-auto">
-      <h2 className="text-3xl mx-2 font-bold text-center mb-6"> Web Development Skills</h2>
+      <h2 className="text-3xl mx-2 font-bold text-center mb-6">Web Development Skills</h2>
       <ul className="flex flex-wrap justify-center">
         {webskills.map((webskill) => (
           <SkillItem key={webskill.name} webskill={webskill} />

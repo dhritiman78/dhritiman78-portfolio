@@ -11,6 +11,10 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ProjectPage from "./components/ProjectPage";
 import ServicePage from "./components/ServicePage";
 import ContactPage from "./components/ContactPage";
+import Admin from "./components/Admin";
+import AdminNavbar from "./components/AdminNavbar";
+import ContactRequests from "./components/ContactRequests";
+import UpdateProjects from "./components/UpdateProjects";
 const HomePage = () => {
   return (
     <div>
@@ -60,6 +64,30 @@ const Contact = () => {
     </div>
   );
 }
+const AdminLogin = () => {
+  return (
+    <div>
+      <NavbarOther />
+      <Admin />
+    </div>
+  );
+}
+const ConatctReqView = () => {
+  return (
+    <div>
+      <AdminNavbar />
+      <ContactRequests />
+    </div>
+  );
+}
+const UpdateProjectsView = () => {
+  return (
+    <div>      
+      <AdminNavbar />
+      <UpdateProjects />
+    </div>
+  )
+}
 
 function App() {
   
@@ -74,7 +102,10 @@ function App() {
           <Route path="/cv" element={<CV />} />
           <Route path="/blankcv" element={<CVblank />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<AdminLogin />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="/admin/contactrequests" element={<ConatctReqView />} />
+          <Route path="/admin/updateProjects" element={<UpdateProjectsView />} />
         </Routes>
         {location.pathname !== "/blankcv" && <Footerbar />}
         {/* <Footerbar /> */}

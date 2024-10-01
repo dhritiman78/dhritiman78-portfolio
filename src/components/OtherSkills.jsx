@@ -1,17 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import javapic from '../assets/android_and_coding_and_tools_icons/java.png';
-import kotlinpic from '../assets/android_and_coding_and_tools_icons/kotlin.jpeg';
-import xmlpic from '../assets/android_and_coding_and_tools_icons/xml.png';
-import jetpackcomposepic from '../assets/android_and_coding_and_tools_icons/jetpackcompose.png';
-import cpic from '../assets/android_and_coding_and_tools_icons/c.png';
-import pythonpic from '../assets/android_and_coding_and_tools_icons/python.png';
-import ubuntupic from '../assets/android_and_coding_and_tools_icons/ubuntu.jpeg';
-import vspic from '../assets/android_and_coding_and_tools_icons/vscode.jpeg';
-import vimpic from '../assets/android_and_coding_and_tools_icons/vim.png';
-import androidstudiopic from '../assets/android_and_coding_and_tools_icons/android.png';
-import gitpic from '../assets/android_and_coding_and_tools_icons/git.png';
-import githubpic from '../assets/android_and_coding_and_tools_icons/github.jpeg';
+
 
 const OtherSkillItem = ({ otherskill }) => {
     const { ref, inView } = useInView({
@@ -46,12 +35,14 @@ const OtherSkillItem = ({ otherskill }) => {
 };
 
 const AndroidSkills = () => {
-    const [androidSkills] = useState([
-        { name: 'Java', image: javapic, level: '25%' },
-        { name: 'Kotlin', image: kotlinpic, level: '2%' },
-        { name: 'XML', image: xmlpic, level: '15%' },
-        { name: 'Jetpack Compose', image: jetpackcomposepic, level: '1%' },
-    ]);
+        const [androidSkills, setandroidSkills] = useState([]);
+      
+        useEffect(() => {
+          fetch(import.meta.env.VITE_API_URL+'/api/skills/androidskills')
+            .then((res) => res.json())
+            .then((data) => setandroidSkills(data));
+        }
+        , []);
 
     return (
         <div className="my-6 container mx-auto">
@@ -66,12 +57,13 @@ const AndroidSkills = () => {
 };
 
 const CodingSkills = () => {
-    const [codingSkills] = useState([
-        { name: 'Java', image: javapic, level: '55%' },
-        { name: 'C', image: cpic, level: '75%' },
-        { name: 'Python', image: pythonpic, level: '35%' },
-    ]);
-
+    const [codingSkills, setcodingSkills] = useState([]);
+    useEffect(() => {
+        fetch(import.meta.env.VITE_API_URL+'/api/skills/codingskills')
+          .then((res) => res.json())
+          .then((data) => setcodingSkills(data));
+      }
+      , []);
     return (
         <div className="my-6 container mx-auto">
             <h2 className="text-3xl font-bold text-center mb-6">Coding Skills</h2>
@@ -85,15 +77,14 @@ const CodingSkills = () => {
 };
 
 const UsedTools = () => {
-    const [usedTools] = useState([
-        { name: 'Ubuntu', image: ubuntupic, level: '65%' },
-        { name: 'Vs Code', image: vspic, level: '80%' },
-        { name: 'Vim', image: vimpic, level: '56%' },
-        { name: 'Android Studio', image: androidstudiopic, level: '60%' },
-        { name: 'Git', image: gitpic, level: '40%' },
-        { name: 'Github', image: githubpic, level: '60%' },
-    ]);
 
+    const [usedTools, setUsedTools] = useState([]);
+    useEffect(() => {
+        fetch(import.meta.env.VITE_API_URL+'/api/skills/toolskills')
+          .then((res) => res.json())
+          .then((data) => setUsedTools(data));
+      }
+      , []);
     return (
         <div className="my-6 container mx-auto">
             <h2 className="text-3xl font-bold text-center mb-6">Tools</h2>

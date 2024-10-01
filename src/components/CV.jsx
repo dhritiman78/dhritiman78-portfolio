@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const CV = () => {
   const [skills] = useState([
@@ -10,43 +10,14 @@ const CV = () => {
     { name: 'Tools', skills: ['Git', 'GitHub'] },
   ]);
 
-  const[projects] = useState([
-    {
-      name: 'Hostel Fee Management System',
-      description: 'Developed a comprehensive system for managing hostel fees.',
-      technologies: 'PHP, MySQL',
-      role: 'Full Stack Developer',
-      github: 'https://github.com/dhritiman78/Hostel-fee-management-system'
-    },
-    {
-      name: 'CEE Assam College Predictor',
-      description: 'Created a college predictor website based on CEE ranks and cut-off data.',
-      technologies: 'PHP, MySQL',
-      role: 'Full Stack Developer',
-      github: 'https://github.com/dhritiman78/cee-assam-college-predictor'
-    },
-    {
-      name: 'Dhritishman Photographer Portfolio',
-      description: 'Built a photographer portfolio for Dhritishman, allowing him to showcase and upload his photos.',
-      technologies: 'PHP, MySQL',
-      role: 'Backend Developer',
-      github: 'https://github.com/Manash0606JB/Dhritisman-Photographer-portfolio.github.io'
-    },
-    {
-      name: 'Shimi Gallery',
-      description: 'Developed a portfolio website for my friend Sharmin Sultana (Shimi) to showcase her artwork.',
-      technologies: 'NextJS, mongoose, MongoDB',
-      role: 'Backend Developer',
-      github: 'https://github.com/dhritiman78/Shimi-Gallery'
-    },
-    {
-      name: 'Desi Instagram',
-      description: 'Developed a prototype social media platform where users can post, text, and follow other users.',
-      technologies: 'PHP, MySQL',
-      role: 'Full Stack Developer',
-      github: 'https://github.com/dhritimn/Desi-Instagram'
-    }
-  ]);
+    const [projects, setProjects] = useState([]);
+
+    useEffect(() => {
+        fetch(import.meta.env.VITE_API_URL+'/api/projects/incv')
+          .then((res) => res.json())
+          .then((data) => setProjects(data));
+      }
+      , []);
 
   const [languages] = useState(['English', 'Hindi', 'Assamese']);
 
