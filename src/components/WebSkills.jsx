@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Loading from './Loading'; // Import loading component
 
 const SkillItem = ({ webskill }) => {
   const { ref, inView } = useInView({
-    triggerOnce: true, // Trigger animation once
-    threshold: 0.5, // Trigger when 50% of the element is visible
+    triggerOnce: true,
+    threshold: 0.5,
   });
 
   const currentWidth = inView ? `${webskill.level}` : '0%';
@@ -35,6 +36,7 @@ const SkillItem = ({ webskill }) => {
 
 const WebSkills = () => {
   const [webskills, setWebskills] = useState([]);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     const fetchSkills = async () => {
@@ -45,8 +47,10 @@ const WebSkills = () => {
         }
         const data = await response.json();
         setWebskills(data);
+        setLoading(false); // Data fetched, stop loading
       } catch (error) {
         console.error('Fetch error:', error);
+        // setLoading(false); // Stop loading on error
       }
     };
 
@@ -56,13 +60,17 @@ const WebSkills = () => {
   return (
     <div className="my-6 container mx-auto">
       <h2 className="text-3xl mx-2 font-bold text-center mb-6">Web Development Skills</h2>
-      <ul className="flex flex-wrap justify-center">
-        {webskills.map((webskill) => (
-          <SkillItem key={webskill.name} webskill={webskill} />
-        ))}
-      </ul>
+      {loading ? (
+        <Loading /> // Show loading spinner if still fetching data
+      ) : (
+        <ul className="flex flex-wrap justify-center">
+          {webskills.map((webskill) => (
+            <SkillItem key={webskill.name} webskill={webskill} />
+          ))}
+        </ul>
+      )}
     </div>
   );
 };
-
+<Loading />
 export default WebSkills;

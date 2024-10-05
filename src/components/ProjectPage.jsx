@@ -1,13 +1,17 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import Loading from './Loading';
 
 const ProjectPage = () => {
     const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true); // Loading state
 
 useEffect(() => {
     fetch(import.meta.env.VITE_API_URL+'/api/projects/all')
       .then((res) => res.json())
-      .then((data) => setProjects(data));
+      .then((data) => {setProjects(data)
+        setLoading(false);
+      });
   }
   , []);
 return (
@@ -21,8 +25,10 @@ return (
         </header>
 
         {/* Projects Section */}
-        <section className="container mx-auto px-4 py-12 ">
+        <section className="container mx-auto px-4 py-12">
+        {loading && <Loading />}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
             {projects.map((project, index) => (
                 <div
                     key={index}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Loading from './Loading';
 
 
 const OtherSkillItem = ({ otherskill }) => {
@@ -36,11 +37,15 @@ const OtherSkillItem = ({ otherskill }) => {
 
 const AndroidSkills = () => {
         const [androidSkills, setandroidSkills] = useState([]);
+        const [loading, setLoading] = useState(true); // Loading state
+
       
         useEffect(() => {
           fetch(import.meta.env.VITE_API_URL+'/api/skills/androidskills')
             .then((res) => res.json())
-            .then((data) => setandroidSkills(data));
+            .then((data) => {setandroidSkills(data)
+                setLoading(false);
+            });
         }
         , []);
 
@@ -48,7 +53,7 @@ const AndroidSkills = () => {
         <div className="my-6 container mx-auto">
             <h2 className="text-3xl font-bold text-center mb-6">Android Development Skills</h2>
             <ul className="flex flex-wrap justify-center">
-                {androidSkills.map((androidSkill) => (
+                {loading? <Loading />: androidSkills.map((androidSkill) => (
                     <OtherSkillItem key={androidSkill.name} otherskill={androidSkill} />
                 ))}
             </ul>
@@ -58,17 +63,21 @@ const AndroidSkills = () => {
 
 const CodingSkills = () => {
     const [codingSkills, setcodingSkills] = useState([]);
+    const [loading, setLoading] = useState(true); // Loading state
+
     useEffect(() => {
         fetch(import.meta.env.VITE_API_URL+'/api/skills/codingskills')
           .then((res) => res.json())
-          .then((data) => setcodingSkills(data));
+          .then((data) => {setcodingSkills(data)
+            setLoading(false);
+          });
       }
       , []);
     return (
         <div className="my-6 container mx-auto">
             <h2 className="text-3xl font-bold text-center mb-6">Coding Skills</h2>
             <ul className="flex flex-wrap justify-center">
-                {codingSkills.map((codingSkill) => (
+                {loading? <Loading />: codingSkills.map((codingSkill) => (
                     <OtherSkillItem key={codingSkill.name} otherskill={codingSkill} />
                 ))}
             </ul>
@@ -79,17 +88,21 @@ const CodingSkills = () => {
 const UsedTools = () => {
 
     const [usedTools, setUsedTools] = useState([]);
+    const [loading, setLoading] = useState(true); // Loading state
+
     useEffect(() => {
         fetch(import.meta.env.VITE_API_URL+'/api/skills/toolskills')
           .then((res) => res.json())
-          .then((data) => setUsedTools(data));
+          .then((data) => {setUsedTools(data)
+            setLoading(false);
+          });
       }
       , []);
     return (
         <div className="my-6 container mx-auto">
             <h2 className="text-3xl font-bold text-center mb-6">Tools</h2>
             <ul className="flex flex-wrap justify-center">
-                {usedTools.map((usedTool) => (
+                {loading? <Loading />: usedTools.map((usedTool) => (
                     <OtherSkillItem key={usedTool.name} otherskill={usedTool} />
                 ))}
             </ul>
